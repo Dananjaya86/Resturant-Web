@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><img src="" alt=""></div>
+      <div class="menu-toggle" id="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#book">Book the Restaurant</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+    
+<div id="home" class="carousel"> </div>
+  <div class="carousel">
+  <img src="../img/resturant.jpg" class="active">
+  <img src="../img/outdoor-restaurants.jpg">
+  <img src="../img/waterfront-restaurants.jpg">
+</div>
+
+
+<section id="menu"> </section>
+
+  <h2>Our Categories</h2>
+ 
+  
+  <div class="marquee-container">
+  <div class="marquee">
+    <div class="marquee-content">
+      <img src="../img/rice.png" alt="Rice" onclick="showSubcategory('rice')">
+      <img src="../img/Noodles.jpg" alt="Noodles" onclick="showSubcategory('noodles')">
+      <img src="../img/pasta.jpg" alt="Pasta" onclick="showSubcategory('pasta')">
+      <img src="../img/kottu.png" alt="Kottu" onclick="showSubcategory('kottu')">
+      <img src="../img/deville.png" alt="Devel" onclick="showSubcategory('devel')">
+      <img src="../img/hoppers.jpg" alt="Hoppers" onclick="showSubcategory('hoppers')">
+      <img src="../img/shorteats.jpg" alt="Shorteats" onclick="showSubcategory('shorteats')">
+    </div>
+    
+    <div class="marquee-content">
+      <img src="../img/rice.png" alt="Rice" onclick="showSubcategory('rice')">
+      <img src="../img/Noodles.jpg" alt="Noodles" onclick="showSubcategory('noodles')">
+      <img src="../img/pasta.jpg" alt="Pasta" onclick="showSubcategory('pasta')">
+      <img src="../img/kottu.png" alt="Kottu" onclick="showSubcategory('kottu')">
+      <img src="../img/deville.png" alt="Devel" onclick="showSubcategory('devel')">
+      <img src="../img/hoppers.jpg" alt="Hoppers" onclick="showSubcategory('hoppers')">
+      <img src="../img/shorteats.jpg" alt="Shorteats" onclick="showSubcategory('shorteats')">
+    </div>
+  </div>
+</div>
+
+
+
+  <div id="rice" class="subcategories">
+  <div class="sub-card" onclick="showItem('Fried Rice', 1200)">
+    <img src="https://source.unsplash.com/200x200/?friedrice" alt="Fried Rice">
+    <h4>Fried Rice</h4>
+    <p>Delicious Sri Lankan style fried rice.</p>
+    <p class="price">Rs. 1200</p>
+    <button>Select</button>
+  </div>
+
+  <div class="sub-card" onclick="showItem('Rice and Curry', 1000)">
+    <img src="https://source.unsplash.com/200x200/?curry" alt="Rice and Curry">
+    <h4>Rice and Curry</h4>
+    <p>Traditional rice with 3 curries.</p>
+    <p class="price">Rs. 1000</p>
+    <button>Select</button>
+  </div>
+
+  <div class="sub-card" onclick="showItem('Biriyani', 1500)">
+    <img src="https://source.unsplash.com/200x200/?biriyani" alt="Biriyani">
+    <h4>Biriyani</h4>
+    <p>Spiced rice served with chicken or mutton.</p>
+    <p class="price">Rs. 1500</p>
+    <button>Select</button>
+  </div>
+
+  <div class="sub-card" onclick="showItem('Mix Rice', 1300)">
+    <img src="https://source.unsplash.com/200x200/?mixrice" alt="Mix Rice">
+    <h4>Mix Rice</h4>
+    <p>A variety of flavors in one plate.</p>
+    <p class="price">Rs. 1300</p>
+    <button>Select</button>
+  </div>
+</div> 
+
+ 
+  <div id="itemModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalItemName"></h3>
+    <p id="modalItemPrice"></p>
+    <label>Portion: </label>
+    <input type="number" id="portionCount" value="1" min="1">
+    <div class="modal-buttons">
+      <button class="delivery" onclick="confirmOrder('Delivery')">Delivery</button>
+      <button class="takeaway" onclick="confirmOrder('Take Away')">Take Away</button>
+    </div>
+    <p id="confirmationMsg" style="margin-top:10px; font-weight:bold; color:green;"></p>
+  </div>
+</div>
+
+
+<section id="book"> ... </section>
+<section>
+  <h2>Book Our Restaurant</h2>
+  <div class="cards">
+    <div class="card"><img src="" alt="ssss"><h3>Birthday Function</h3><p>3 hours - Rs. 10,000</p></div>
+    <div class="card"><img src="ssss" alt=""><h3>Meeting</h3><p>2 hours - Rs. 5,000</p></div>
+    <div class="card"><img src="sss" alt=""><h3>Family Get-Together</h3><p>4 hours - Rs. 15,000</p></div>
+    <div class="card"><img src="ssss" alt=""><h3>Friends Get-Together</h3><p>3 hours - Rs. 12,000</p></div>
+  </div>
+</section>
+
+
+<section id="feedback">
+  <h2>Customer Feedback</h2>
+  <div class="feedback-box">
+    <form id="feedbackForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="comment">Comment</label>
+      <textarea id="comment" rows="4" placeholder="Write your feedback..." required></textarea>
+
+      <div class="form-buttons">
+        <button type="submit">Submit</button>
+        <button type="reset" class="cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+<div class="feedback-display">
+    <div class="feedback-carousel">
+      <div id="feedbackList" class="feedback-cards"></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact"> ... </section>
+<section>
+  <h2>Contact Us</h2>
+  <div class="contact-container">
+    <div class="address">
+      <p><strong>Bolgoda SunSite</strong></p>
+      <p><img src="" alt="">123 Main Street, <br>
+        Old Road, <br>
+        Moratuwa, <br>
+        Sri Lanka. <br>
+        10400.
+    </p>
+      <p>Email: info@restaurant.com</p>
+      <p>Phone: +94 77 123 4567</p>
+    </div>
+    <div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1267.7478120674028!2d79.9019873!3d6.7738193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae245852f5755db%3A0x556d7640c75b7c83!2sBolgoda%20Lake!5e1!3m2!1sen!2slk!4v1692440277000!5m2!1sen!2slk"    "></iframe>
+    </div>
+  </div>
+  <form>
+    <p class="any">Any Inqïry Please Contact Us</p>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Message"></textarea>
+    <button class="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Restaurant. All Rights Reserved.</p>
+</footer>
+
+
+
+<script src="./script.js"></script>
+</body>
+</html>

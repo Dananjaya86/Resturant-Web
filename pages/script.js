@@ -128,3 +128,66 @@ window.addEventListener("scroll", () => {
   }
 });
 
+
+
+function openModal(title) {
+  document.getElementById("popupTitle").innerText = title;
+  document.getElementById("bookingPopup").style.display = "flex";
+
+  
+  let today = new Date();
+  today.setDate(today.getDate() + 2);
+  let minDate = today.toISOString().split("T")[0];
+  document.getElementById("date").setAttribute("min", minDate);
+}
+
+function closePopup() {
+  document.getElementById("bookingPopup").style.display = "none";
+}
+
+function confirmBooking() {
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let date = document.getElementById("date").value;
+
+  
+  if (name === "") {
+    alert("⚠️ Please enter your name.");
+    return;
+  }
+
+ 
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    alert("⚠️ Please enter a valid email address.");
+    return;
+  }
+
+  
+  if (date === "") {
+    alert("⚠️ Please select a booking date.");
+    return;
+  }
+ let today = new Date();
+  today.setDate(today.getDate() + 2); 
+  let minDate = today.toISOString().split("T")[0];
+  if (date < minDate) {
+    alert("⚠️ You can only select future dates (not today or past).", "error");
+    return;
+  }
+
+  
+  alert("🎉 Booking confirmed!");
+
+  document.getElementById("bookingForm").reset();
+
+  closePopup();
+}
+
+
+window.onclick = function(event) {
+  let popup = document.getElementById("bookingPopup");
+  if (event.target === popup) {
+    closePopup();
+  }
+}

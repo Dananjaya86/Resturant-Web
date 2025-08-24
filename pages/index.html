@@ -195,7 +195,10 @@
 
 
 <section id="feedback">
+    <BR>
+        
   <h2>Customer Feedback</h2>
+
   <div class="feedback-box">
     <form id="feedbackForm">
       <label for="name">Name</label>
@@ -214,11 +217,19 @@
     </form>
   </div>
 
-<div class="feedback-display">
-    <div class="feedback-carousel">
-      <div id="feedbackList" class="feedback-cards"></div>
+  <div class="feedback-display">
+    <div id="feedbackList" class="feedback-cards"></div>
+  </div>
+
+  <!-- Custom Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <p id="popupMessage"></p>
+      <button type="button" onclick="closePopup()">OK</button>
     </div>
   </div>
+
+
 </section>
 
 

@@ -63,26 +63,49 @@ window.onclick = function(e) {
   }
 }
 
-const feedbackContainer = document.getElementById("feedbackList"); 
-  document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+const feedbackContainer = document.getElementById("feedbackList");
+
+function showPopup(message) {
+  const popup = document.getElementById("popup");
+  const popupMessage = document.getElementById("popupMessage");
+
+  popupMessage.textContent = message;
+  popup.style.display = "flex";
+
+  
+  setTimeout(() => {
+    closePopup();
+  }, 3000);
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+document.getElementById("feedbackForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const comment = document.getElementById("comment").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const comment = document.getElementById("comment").value.trim();
+
 
   const card = document.createElement("div");
   card.className = "feedback-card";
-  card.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+  card.innerHTML = `<strong> Name:- ${name}</strong><p> Comment:- ${comment}</p>`;
 
   feedbackContainer.appendChild(card);
 
-  
-  while (feedbackContainer.children.length > 5) {
+ 
+  while (feedbackContainer.children.length > 6) {
     feedbackContainer.removeChild(feedbackContainer.firstChild);
   }
-
-  this.reset();
+ showPopup("✅ Thank you for your feedback!");
+ 
+this.reset();
+  
 });
+
 
 const sections = document.querySelectorAll("section, .carousel");
 

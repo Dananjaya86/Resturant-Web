@@ -71,21 +71,31 @@ document.addEventListener("DOMContentLoaded", function() {
   feedbackForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
+    const name = document.getElementById("name1").value.trim();
     const email = document.getElementById("email").value.trim();
     const comment = document.getElementById("comment").value.trim();
 
   
 
-    // Create card
+    
     const card = document.createElement("div");
     card.className = "feedback-card";
-    card.innerHTML = `<strong>Name:- ${name}</strong><p>Comment:- ${comment}</p>`;
+
+      const strong = document.createElement("strong");
+    strong.textContent = "Name:- "+name;
+
+    const p = document.createElement("p");
+    p.textContent = "Comment:- "+comment;
+
+    card.appendChild(strong);
+    card.appendChild(p);
+      
+       
 
     feedbackList.appendChild(card);
 
-    // Keep only last 5
-    while (feedbackList.children.length > 5) {
+    
+    while (feedbackList.children.length > 6) {
       feedbackList.removeChild(feedbackList.firstChild);
     }
 
@@ -99,8 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     popupMessage.textContent = message;
     popup.style.display = "flex";
 
-    // Auto close after 3s
-    setTimeout(() => { popup.style.display = "none"; }, 3000);
+    setTimeout(() => { popup.style.display = "none"; }, 2000);
   };
 
   window.closePopup = function() {

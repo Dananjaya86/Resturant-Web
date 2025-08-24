@@ -63,48 +63,51 @@ window.onclick = function(e) {
   }
 }
 
-const feedbackContainer = document.getElementById("feedbackList");
 
-function showPopup(message) {
-  const popup = document.getElementById("popup");
-  const popupMessage = document.getElementById("popupMessage");
+document.addEventListener("DOMContentLoaded", function() {
+  const feedbackForm = document.getElementById("feedbackForm");
+  const feedbackList = document.getElementById("feedbackList");
 
-  popupMessage.textContent = message;
-  popup.style.display = "flex";
+  feedbackForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const comment = document.getElementById("comment").value.trim();
 
   
-  setTimeout(() => {
-    closePopup();
-  }, 3000);
-}
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
+    // Create card
+    const card = document.createElement("div");
+    card.className = "feedback-card";
+    card.innerHTML = `<strong>Name:- ${name}</strong><p>Comment:- ${comment}</p>`;
 
-document.getElementById("feedbackForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+    feedbackList.appendChild(card);
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const comment = document.getElementById("comment").value.trim();
+    // Keep only last 5
+    while (feedbackList.children.length > 5) {
+      feedbackList.removeChild(feedbackList.firstChild);
+    }
 
+    showPopup("✅ Thank you for your feedback!");
+    feedbackForm.reset();
+  });
 
-  const card = document.createElement("div");
-  card.className = "feedback-card";
-  card.innerHTML = `<strong> Name:- ${name}</strong><p> Comment:- ${comment}</p>`;
+  window.showPopup = function(message) {
+    const popup = document.getElementById("popup");
+    const popupMessage = document.getElementById("popupMessage");
+    popupMessage.textContent = message;
+    popup.style.display = "flex";
 
-  feedbackContainer.appendChild(card);
+    // Auto close after 3s
+    setTimeout(() => { popup.style.display = "none"; }, 3000);
+  };
 
- 
-  while (feedbackContainer.children.length > 6) {
-    feedbackContainer.removeChild(feedbackContainer.firstChild);
-  }
- showPopup("✅ Thank you for your feedback!");
- 
-this.reset();
-  
+  window.closePopup = function() {
+    document.getElementById("popup").style.display = "none";
+  };
 });
+
 
 
 const sections = document.querySelectorAll("section, .carousel");
@@ -120,12 +123,7 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
-  });
+  
 });
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");

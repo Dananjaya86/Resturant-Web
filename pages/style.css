@@ -481,7 +481,7 @@ h2 { margin-bottom: 20px; }
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(253, 251, 251, 0.1);
 }
 
 .feedback-box label { display: block; margin-top: 10px; text-align: left; }
@@ -504,7 +504,7 @@ h2 { margin-bottom: 20px; }
 .feedback-display { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
 .feedback-card {
-  background: #fff;
+  background: #dad6d6;
   padding: 15px;
   border-radius: 8px;
   width: 200px;
